@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org" class="base-html">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        .base-body,
+        .base-html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .parent-frame {
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 99%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5px;
+            box-shadow: 3px 3px 3px #888, -3px 3px 3px #888, 3px -3px 3px #888, -3px -3px 3px #888;
+        }
+    </style>
+</head>
+<body class="base-body">
+<div id="root" class="parent-frame">
+    <h1 style="text-align: center;">Service poller</h1>
+    <hr>
+    <div th:switch="${services}">
+        <table style="margin-left: 50px; border: 1px solid;">
+            <tr style="border: 1px solid;">
+                <th style="padding: 10px">Service</th>
+                <th style="padding: 10px">Status</th>
+                <th style="padding: 10px">Last Checked</th>
+            </tr>
+            <tr th:each="service : ${services}">
+                <td style="padding: 10px" th:text="${service.name}"></td>
+                <td th:style="${service.status == 'OK' ? 'background-color: green;padding: 10px; color:white;' : 'background-color: red;padding: 20px; color:white;'}" th:text="${service.status}"></td>
+                <td style="padding: 10px;" th:text="${service.lastChecked}"></td>
+            </tr>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

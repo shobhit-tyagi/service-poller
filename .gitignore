@@ -1,0 +1,18 @@
+### JetBrains IDEs:
+.idea
+*.iml
+*.ipr
+*.iws
+bin/
+target
+out
+logs
+*~
+classes
+mem.h2.db
+mem.trace.db
+checkout.log.json
+checkout.access.log.json
+.vagrant
+coverage/
+out
